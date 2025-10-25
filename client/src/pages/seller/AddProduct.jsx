@@ -12,6 +12,7 @@ const AddProduct = () => {
   const [offerPrice, setOfferPrice] = useState("");
 
   const { axios, fetchProducts, navigate } = useAppContext();
+  const [loading, setLoading] = useState(false);
 
   const onSubmitHandler = async (event) => {
     try {
@@ -59,8 +60,8 @@ const AddProduct = () => {
         className="md:p-10 p-4 space-y-5 max-w-lg"
       >
         <div>
-          <p className="text-base font-medium">Product Image</p>
-          <div className="flex flex-wrap items-center gap-3 mt-2">
+          <p className="text-base font-medium cursor-pointer">Product Image</p>
+          <div className="flex flex-wrap items-center gap-3 mt-2 ">
             {Array(4)
               .fill("")
               .map((_, index) => (
@@ -92,7 +93,10 @@ const AddProduct = () => {
           </div>
         </div>
         <div className="flex flex-col gap-1 max-w-md">
-          <label className="text-base font-medium" htmlFor="product-name">
+          <label
+            className="text-base font-medium cursor-pointer"
+            htmlFor="product-name"
+          >
             Product Name
           </label>
           <input
@@ -101,13 +105,13 @@ const AddProduct = () => {
             id="product-name"
             type="text"
             placeholder="Type here"
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 active:border-gray-900"
             required
           />
         </div>
         <div className="flex flex-col gap-1 max-w-md">
           <label
-            className="text-base font-medium"
+            className="text-base font-medium cursor-pointer"
             htmlFor="product-description"
           >
             Product Description
@@ -117,19 +121,22 @@ const AddProduct = () => {
             value={description}
             id="product-description"
             rows={4}
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 resize-none"
+            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 resize-none active:border-gray-900"
             placeholder="Type here"
           ></textarea>
         </div>
         <div className="w-full flex flex-col gap-1">
-          <label className="text-base font-medium" htmlFor="category">
+          <label
+            className="text-base font-medium cursor-pointer"
+            htmlFor="category"
+          >
             Category
           </label>
           <select
             onChange={(e) => setCategory(e.target.value)}
             value={category}
             id="category"
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 active:border-gray-900"
           >
             <option value="">Select Category</option>
             {categories.map((item, index) => (
@@ -141,7 +148,10 @@ const AddProduct = () => {
         </div>
         <div className="flex items-center gap-5 flex-wrap">
           <div className="flex-1 flex flex-col gap-1 w-32">
-            <label className="text-base font-medium" htmlFor="product-price">
+            <label
+              className="text-base font-medium cursor-pointer"
+              htmlFor="product-price"
+            >
               Product Price
             </label>
             <input
@@ -150,12 +160,15 @@ const AddProduct = () => {
               id="product-price"
               type="number"
               placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 active:border-gray-900"
               required
             />
           </div>
           <div className="flex-1 flex flex-col gap-1 w-32">
-            <label className="text-base font-medium" htmlFor="offer-price">
+            <label
+              className="text-base font-medium cursor-pointer"
+              htmlFor="offer-price"
+            >
               Offer Price
             </label>
             <input
@@ -164,13 +177,23 @@ const AddProduct = () => {
               id="offer-price"
               type="number"
               placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 active:border-gray-900"
               required
             />
           </div>
         </div>
-        <button className="px-8 py-2.5 bg-primary text-white font-medium rounded cursor-pointer">
-          ADD
+        <button
+          onClick={() => {
+            setLoading(true);
+            setTimeout(() => setLoading(false), 8000);
+          }}
+          className="px-8 py-2.5 bg-orange-500 text-white font-medium rounded cursor-pointer disabled:opacity-50"
+        >
+          {loading ? (
+            <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+          ) : (
+            "ADD"
+          )}
         </button>
       </form>
     </div>

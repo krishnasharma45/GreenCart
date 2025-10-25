@@ -6,10 +6,12 @@ const Wishlist = () => {
   const { wishlist } = useAppContext();
 
   return (
-    <div className="mt-16 pb-16">
+    <div className="relative mt-20 md:mt-24">
       <div className="flex flex-col items-end w-max mb-8">
-        <p className="text-2xl font-medium uppercase">My Wishlist</p>
-        <div className="w-16 h-0.5 bg-primary rounded-full"></div>
+        <p className="text-2xl font-medium uppercase cursor-pointer">
+          My Wishlist
+        </p>
+        <div className="w-16 h-0.5 bg-orange-500 rounded-full"></div>
       </div>
 
       {wishlist.length > 0 ? (

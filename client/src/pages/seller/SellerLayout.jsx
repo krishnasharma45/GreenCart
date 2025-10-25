@@ -33,7 +33,7 @@ const SellerLayout = () => {
   return (
     <>
       <div className="flex items-center justify-between px-4 md:px-8 border-b border-gray-300 py-3 bg-white">
-        <Link to="/">
+        <Link to="/seller">
           <img
             src={assets.logo}
             alt="log"
@@ -44,7 +44,7 @@ const SellerLayout = () => {
           <p>Hi! Admin</p>
           <button
             onClick={logout}
-            className="border rounded-full text-sm px-4 py-1"
+            className="border border-orange-500 text-orange-500 font-medium rounded-full text-sm px-4 py-1 transition-all duration-300 hover:bg-orange-600 hover:border-orange-600 hover:text-white shadow-sm"
           >
             Logout
           </button>
@@ -60,7 +60,7 @@ const SellerLayout = () => {
               className={({ isActive }) => `flex items-center py-3 px-4 gap-3 
                             ${
                               isActive
-                                ? "border-r-4 md:border-r-[6px] bg-primary/10 border-primary text-primary"
+                                ? "border-r-4 md:border-r-[6px] bg-orange-500/10 border-orange-500 text-orange-500"
                                 : "hover:bg-gray-100/90 border-white"
                             }`}
             >

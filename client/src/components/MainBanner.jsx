@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const MainBanner = () => {
   return (
-    <div className="relative">
+    <div className="relative mt-20 md:mt-24">
       <img
         src={assets.main_banner_bg}
         alt="banner"
@@ -24,7 +24,7 @@ const MainBanner = () => {
         <div className="flex items-center mt-6 font-medium">
           <Link
             to={"/products"}
-            className="group flex items-center gap-2 px-7 md:px-9 py-3 bg-primary hover:bg-primary-dull transition rounded text-white cursor-pointer"
+            className="group flex items-center gap-2 px-7 md:px-9 py-3 bg-orange-500 hover:bg-orange-600 transition rounded text-white cursor-pointer"
           >
             Shop now
             <img

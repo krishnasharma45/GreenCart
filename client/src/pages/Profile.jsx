@@ -162,7 +162,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="mt-16 pb-16 max-w-4xl mx-auto">
+    <div className="relative mt-20 md:mt-24 max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-medium">My Profile</h1>
         {!isEditing && (
@@ -252,7 +252,7 @@ const Profile = () => {
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="w-full py-2 bg-primary text-white font-medium rounded hover:bg-primary-dull transition"
+                className="w-full py-2 bg-orange-500 text-white font-medium rounded hover:bg-orange-600 transition"
               >
                 Save Changes
               </button>
@@ -275,7 +275,7 @@ const Profile = () => {
           {!showAddAddress && (
             <button
               onClick={() => setShowAddAddress(true)}
-              className="px-6 py-2 bg-primary text-white font-medium rounded hover:bg-primary-dull transition"
+              className="px-6 py-2 bg-orange-500 text-white font-medium rounded hover:bg-orange-600 transition"
             >
               Add New Address
             </button>
@@ -388,7 +388,7 @@ const Profile = () => {
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="py-2 px-6 bg-primary text-white rounded"
+                className="py-2 px-6 bg-orange-500 text-white rounded"
               >
                 Save Address
               </button>
@@ -411,7 +411,7 @@ const Profile = () => {
               <form
                 key={addr._id}
                 onSubmit={handleUpdateAddress}
-                className="space-y-3 p-4 border-2 border-primary rounded-lg mb-6"
+                className="space-y-3 p-4 border-2 border-orange-500 rounded-lg mb-6"
               >
                 <h3 className="text-lg font-medium">Edit Address</h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -515,7 +515,7 @@ const Profile = () => {
                 <div className="flex gap-4">
                   <button
                     type="submit"
-                    className="py-2 px-6 bg-primary text-white rounded"
+                    className="py-2 px-6 bg-orange-500 text-white rounded"
                   >
                     Save Changes
                   </button>
@@ -547,7 +547,7 @@ const Profile = () => {
                 <div className="flex gap-4">
                   <button
                     onClick={() => setEditingAddress(addr)}
-                    className="font-medium text-primary hover:underline"
+                    className="font-medium text-orange-500 hover:underline"
                   >
                     Edit
                   </button>

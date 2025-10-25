@@ -30,7 +30,16 @@ const App = () => {
       {isSellerPath ? null : <Navbar />}
       {showUserLogin ? <Login /> : null}
 
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          success: {
+            iconTheme: {
+              primary: "#fb923c",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
 
       <div
         className={`${isSellerPath ? "" : "px-6 md:px-16 lg:px-24 xl:px-32"}`}

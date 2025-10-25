@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
         {/* --- WISHLIST ICON --- */}
         <div
           onClick={(e) => {
-            e.stopPropagation(); // Prevents the click from navigating to the product page
+            e.stopPropagation();
             handleWishlist(product._id);
           }}
           className="absolute top-2 right-2 p-1.5 bg-gray-100 hover:bg-gray-200 rounded-full z-10"
@@ -75,7 +75,7 @@ const ProductCard = ({ product }) => {
             <p>(4)</p>
           </div>
           <div className="flex items-end justify-between mt-3">
-            <p className="md:text-xl text-base font-medium text-primary">
+            <p className="md:text-xl text-base font-medium text-orange-500">
               {currency}
               {product.offerPrice}{" "}
               <span className="text-gray-500/60 md:text-sm text-xs line-through">
@@ -87,18 +87,18 @@ const ProductCard = ({ product }) => {
               onClick={(e) => {
                 e.stopPropagation();
               }}
-              className="text-primary"
+              className="text-orange-500"
             >
               {!cartItems[product._id] ? (
                 <button
-                  className="flex items-center justify-center gap-1 bg-primary/10 border border-primary/40 md:w-[80px] w-[64px] h-[34px] rounded"
+                  className="flex items-center justify-center gap-1 bg-orange-500/10 border border-orange-500/40 md:w-[80px] w-[64px] h-[34px] rounded"
                   onClick={() => addToCart(product._id)}
                 >
-                  <img src={assets.cart_icon} alt="cart icon" />
+                  <img src={assets.nav_cart_icon} alt="cart icon" />
                   Add
                 </button>
               ) : (
-                <div className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] bg-primary/25 rounded select-none">
+                <div className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] bg-orange-500/25 rounded select-none">
                   <button
                     onClick={() => removeFromCart(product._id)}
                     className="cursor-pointer text-md px-2 h-full"

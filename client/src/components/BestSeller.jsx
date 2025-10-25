@@ -11,7 +11,7 @@ const BestSeller = () => {
         <p className="text-2xl md:text-3xl font-medium">Best Sellers</p>
         <Link
           to="/products"
-          className="text-primary font-bold cursor-pointer hover:underline pr-2"
+          className="text-orange-500 font-bold cursor-pointer hover:underline pr-2"
         >
           See all
         </Link>

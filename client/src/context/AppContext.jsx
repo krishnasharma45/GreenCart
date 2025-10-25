@@ -166,6 +166,7 @@ export const AppContextProvider = ({ children }) => {
     navigate,
     user,
     setUser,
+    setIsSeller,
     isSeller,
     showUserLogin,
     setShowUserLogin,
@@ -184,7 +185,7 @@ export const AppContextProvider = ({ children }) => {
     handleWishlist,
     fetchProducts,
     fetchUser,
-    axios, // <-- Add axios to the context value
+    axios,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

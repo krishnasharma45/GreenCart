@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
-import { assets, dummyAddress } from "../assets/assets";
+import { assets } from "../assets/assets";
 import toast from "react-hot-toast";
 
 const Cart = () => {
@@ -108,11 +108,13 @@ const Cart = () => {
   }, [user]);
 
   return products.length > 0 && cartItems ? (
-    <div className="flex flex-col md:flex-row mt-16">
+    <div className="flex flex-col md:flex-row relative mt-20 md:mt-24">
       <div className="flex-1 max-w-4xl">
         <h1 className="text-3xl font-medium mb-6">
           Shopping Cart{" "}
-          <span className="text-sm text-primary">{getCartCount()} Items</span>
+          <span className="text-sm text-orange-500">
+            {getCartCount()} Items
+          </span>
         </h1>
 
         <div className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 text-base font-medium pb-3">
@@ -193,7 +195,7 @@ const Cart = () => {
             navigate("/products");
             scrollTo(0, 0);
           }}
-          className="group cursor-pointer flex items-center mt-8 gap-2 text-primary font-medium"
+          className="group cursor-pointer flex items-center mt-8 gap-2 text-orange-500 font-medium"
         >
           <img
             className="group-hover:-translate-x-1 transition"
@@ -218,7 +220,7 @@ const Cart = () => {
             </p>
             <button
               onClick={() => setShowAddress(!showAddress)}
-              className="text-primary hover:underline cursor-pointer"
+              className="text-orange-500 hover:underline cursor-pointer"
             >
               Change
             </button>
@@ -238,7 +240,7 @@ const Cart = () => {
                 ))}
                 <p
                   onClick={() => navigate("/add-address")}
-                  className="text-primary text-center cursor-pointer p-2 hover:bg-primary/10"
+                  className="text-orange-500 text-center cursor-pointer p-2 hover:bg-orange-500/10"
                 >
                   Add address
                 </p>
@@ -289,7 +291,7 @@ const Cart = () => {
 
         <button
           onClick={placeOrder}
-          className="w-full py-3 mt-6 cursor-pointer bg-primary text-white font-medium hover:bg-primary-dull transition"
+          className="w-full py-3 mt-6 cursor-pointer bg-orange-500 text-white font-medium hover:bg-orange-600 transition"
         >
           {paymentOption === "COD" ? "Place Order" : "Proceed to Checkout"}
         </button>

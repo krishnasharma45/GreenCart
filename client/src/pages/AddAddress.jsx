@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 // Input Field Component
 const InputField = ({ type, placeholder, name, handleChange, address }) => (
   <input
-    className="w-full px-2 py-2.5 border border-gray-500/30 rounded outline-none text-gray-500 focus:border-primary transition"
+    className="w-full px-2 py-2.5 border border-gray-500/30 rounded outline-none text-gray-500 focus:border-orange-500 transition"
     type={type}
     placeholder={placeholder}
     onChange={handleChange}
@@ -18,7 +18,7 @@ const InputField = ({ type, placeholder, name, handleChange, address }) => (
 
 const AddAddress = () => {
   const { axios, user, navigate } = useAppContext();
-
+  const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState({
     firstName: "",
     lastName: "",
@@ -43,6 +43,7 @@ const AddAddress = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const { data } = await axios.post("/api/address/add", { address });
 
@@ -54,6 +55,8 @@ const AddAddress = () => {
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -64,9 +67,10 @@ const AddAddress = () => {
   }, []);
 
   return (
-    <div className="mt-16 pb-16">
+    <div className="relative mt-20 md:mt-24">
       <p className="text-2xl md:text-3xl text-gray-500">
-        Add Shipping <span className="font-semibold text-primary">Address</span>
+        Add Shipping{" "}
+        <span className="font-semibold text-gray-700 ">Address</span>
       </p>
       <div className="flex flex-col-reverse md:flex-row justify-between mt-10">
         <div className="flex-1 max-w-md">
@@ -145,13 +149,25 @@ const AddAddress = () => {
               placeholder="Phone"
             />
 
-            <button className="w-full mt-6 bg-primary text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase">
-              Save address
+            <button
+              type="submit"
+              disabled={loading}
+              className={`${
+                loading
+                  ? "bg-orange-400 cursor-not-allowed"
+                  : "bg-orange-500 hover:bg-orange-600"
+              } text-white w-full py-3 rounded-md flex items-center justify-center font-medium uppercase transition-all duration-300 disabled:opacity-60`}
+            >
+              {loading ? (
+                <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                "Save Address"
+              )}
             </button>
           </form>
         </div>
         <img
-          className="md:mr-16 mb-16 md:mt-0"
+          className="w-[70%] max-w-sm h-auto object-contain md:mr-16 mb-10 md:mb-0"
           src={assets.add_address_iamge}
           alt="Add Address"
         />

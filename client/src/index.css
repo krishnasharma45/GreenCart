@@ -5,11 +5,35 @@
   font-family: "Outfit", sans-serif;
 }
 
-@theme {
-  --color-primary: #4fbf8b;
-  --color-primary-dull: #44ae7c;
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 100%;
+  }
+  60% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 4s steps(20) infinite;
+  }
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
 }

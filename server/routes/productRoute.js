@@ -6,6 +6,7 @@ import {
   changeStock,
   productById,
   productList,
+  deleteProduct,
 } from "../controllers/productController.js";
 
 const productRouter = express.Router();
@@ -14,5 +15,5 @@ productRouter.post("/add", authSeller, upload.array("images"), addProduct);
 productRouter.get("/list", productList);
 productRouter.get("/id", productById);
 productRouter.post("/stock", authSeller, changeStock);
-
+productRouter.delete("/delete/:id", authSeller, deleteProduct);
 export default productRouter;
